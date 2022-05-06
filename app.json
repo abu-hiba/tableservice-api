@@ -9,7 +9,7 @@
       "predeploy": "npm install && npm run build"
     },
     "image": "heroku/nodejs",
-    "addons": ["heroku-postgresql:hobby-dev"],
+    "addons": ["heroku-postgresql"],
     "buildpacks": [
       {
         "url": "heroku/nodejs"
