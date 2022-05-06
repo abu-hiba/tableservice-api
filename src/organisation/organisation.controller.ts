@@ -9,20 +9,21 @@ export class OrgController {
 
     @Get('all')
     async findAll(): Promise<Org[]> {
-        return this.orgService.findAll();
+        return await this.orgService.findAll();
     }
 
     @Get(':id')
     async findOne(@Param('id') id: string): Promise<Org> {
         if (id) {
-            return this.orgService.findOne(id);
+            return await this.orgService.findOne(id);
         }
         throw new HttpException('NotFound', HttpStatus.NOT_FOUND)
     }
 
     @Post()
     async create(@Body() createOrgDto: CreateOrgDto) {
-        this.orgService.create(createOrgDto);
+        await this.orgService.create(createOrgDto);
+        return { success: true };
     }
 
 }
