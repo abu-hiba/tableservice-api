@@ -1,19 +1,22 @@
 import { Injectable } from '@nestjs/common';
-import { Org } from './interfaces/organisation.interface';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+import { CreateOrgDto } from './dto/create-organisation.dto';
+import { Org } from './organisation.entity';
 
 @Injectable()
 export class OrgService {
-    private readonly orgs: Org[] = [];
+    constructor(@InjectRepository(Org) private orgRepository: Repository<Org>) {}
 
-    create(org: Org) {
-        this.orgs.push(org);
+    create(org: CreateOrgDto) {
+        return this.orgRepository.save(org);
     }
 
-    findOne(name: string) {
-        return this.orgs.find(org => org.name === name);
+    findOne(id: string): Promise<Org> {
+        return this.orgRepository.findOne(id);        
     }
 
-    findAll() {
-        return this.orgs;
+    findAll(): Promise<Org[]> {
+        return this.orgRepository.find();
     }
 }
