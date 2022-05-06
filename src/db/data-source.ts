@@ -19,5 +19,8 @@ export const typeOrmModuleOptions: TypeOrmModuleOptions = {
     username: config.user,
     database: config.database,
     password: config.password,
-    entities: ["dist/**/*.entity{.ts,.js}"]
+    entities: ["dist/**/*.entity{.ts,.js}"],
+    ssl: {
+        rejectUnauthorized: false
+    }
 }
