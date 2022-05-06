@@ -22,5 +22,6 @@ export const typeOrmModuleOptions: TypeOrmModuleOptions = {
     entities: ["dist/**/*.entity{.ts,.js}"],
     ssl: {
         rejectUnauthorized: false
-    }
+    },
+    synchronize: process.env.NODE_ENV !== 'production'
 }
