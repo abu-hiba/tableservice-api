@@ -20,6 +20,7 @@ export const typeOrmModuleOptions: TypeOrmModuleOptions = {
     database: config.database,
     password: config.password,
     entities: ["dist/**/*.entity{.ts,.js}"],
+    migrations: ["dist/db/migrations"],
     ssl: {
         rejectUnauthorized: false
     },
