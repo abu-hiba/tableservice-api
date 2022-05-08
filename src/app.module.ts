@@ -4,7 +4,7 @@ import { Connection } from 'typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { OrgModule } from './organisation/organisation.module';
-import { config, validationSchema } from 'config';
+import { config, validationSchema } from '../config';
 import { DatabaseModule } from './db/database.module';
 
 @Module({
