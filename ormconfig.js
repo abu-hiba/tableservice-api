@@ -2,9 +2,9 @@ module.exports = {
     type: "postgres",
     host: process.env.DB_HOST,
     port: parseInt(process.env.DB_PORT) || 5432,
-    username: process.env.DB_USER,
-    database: process.env.DATABASE,
-    password: process.env.PASSWORD,
+    username: process.env.DB_USERNAME,
+    database: process.env.DB_NAME,
+    password: process.env.DB_PASSWORD,
     entities: ["dist/**/*.entity{.ts,.js}"],
     migrations: ["dist/db/migrations/**/*{.ts,.js}"],
     ...(process.env.NODE_ENV !== 'development' && {
