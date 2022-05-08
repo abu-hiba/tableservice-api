@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
+import * as moment from 'moment';
 import { CreateOrgDto } from './dto/create-organisation.dto';
 import { Org } from './organisation.entity';
 
@@ -9,7 +10,9 @@ export class OrgService {
     constructor(@InjectRepository(Org) private orgRepository: Repository<Org>) {}
 
     create(org: CreateOrgDto) {
-        return this.orgRepository.save(org);
+        const todayPlusMonth = moment().add(1, 'M');
+        const subscriptionEndDate = todayPlusMonth.toDate();
+        return this.orgRepository.save({ ...org, subscriptionEndDate });
     }
 
     findOne(id: string): Promise<Org> {

@@ -29,6 +29,7 @@
     "@nestjs/platform-express": "^8.0.0",
     "@nestjs/typeorm": "^8.0.3",
     "joi": "^17.6.0",
+    "moment": "^2.29.3",
     "pg": "^8.7.3",
     "pg-connection-string": "^2.5.0",
     "reflect-metadata": "^0.1.13",
