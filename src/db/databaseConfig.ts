@@ -21,6 +21,7 @@ export const getDbConfig = (configService: ConfigService): TypeOrmModuleOptions 
         type: 'postgres',
         host: config.host,
         port: parseInt(config.port),
+        database: config.database,
         username: config.user,
         password: config.password,
         entities: ["dist/**/*.entity{.ts,.js}"],
