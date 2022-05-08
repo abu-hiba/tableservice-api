@@ -7,8 +7,10 @@ module.exports = {
     password: process.env.PASSWORD,
     entities: ["dist/**/*.entity{.ts,.js}"],
     migrations: ["dist/db/migrations/**/*{.ts,.js}"],
-    ssl: {
-        rejectUnauthorized: false
-    },
+    ...(process.env.NODE_ENV !== 'development' && {
+        ssl: {
+            rejectUnauthorized: false
+        }
+    }),
     synchronize: process.env.NODE_ENV !== 'production'
 }

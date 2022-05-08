@@ -11,6 +11,6 @@ export class Org {
     @Column({ type: "text", nullable: true })
     description?: string;
 
-    // @Column({ type: "timestamp with time zone", nullable: true })
-    // subscriptionEndDate?: string;
+    @Column({ type: "timestamp with time zone", nullable: true })
+    subscriptionEndDate?: Date;
 }

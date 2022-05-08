@@ -20,9 +20,11 @@ export const typeOrmModuleOptions: TypeOrmModuleOptions = {
     database: config.database,
     password: config.password,
     entities: ["dist/**/*.entity{.ts,.js}"],
-    migrations: ["dist/db/migrations"],
-    ssl: {
-        rejectUnauthorized: false
-    },
+    migrations: ["dist/db/migrations/**/*{.ts,.js}"],
+    // ...(process.env.NODE_ENV !== 'dev' && {
+    //     ssl: {
+    //         rejectUnauthorized: false
+    //     }
+    // }),
     synchronize: process.env.NODE_ENV !== 'production'
 }
