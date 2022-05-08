@@ -1,14 +1,20 @@
 import { Module } from '@nestjs/common';
-import { TypeOrmModule } from '@nestjs/typeorm';
+import { ConfigModule } from '@nestjs/config';
 import { Connection } from 'typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { OrgModule } from './organisation/organisation.module';
-import { typeOrmModuleOptions } from './db/data-source';
+import { config, validationSchema } from 'config';
+import { DatabaseModule } from './db/database.module';
 
 @Module({
   imports: [
-    TypeOrmModule.forRoot(typeOrmModuleOptions),
+    DatabaseModule,
+    ConfigModule.forRoot({
+      isGlobal: true,
+      load: [config],
+      validationSchema
+    }),
     OrgModule
   ],
   controllers: [AppController],
