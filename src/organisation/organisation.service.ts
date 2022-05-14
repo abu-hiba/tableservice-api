@@ -36,7 +36,7 @@ export class OrgService {
     if (org) {
       return org;
     }
-    throw new HttpException('Organisation with this email does not exist', HttpStatus.NOT_FOUND);
+    return null;
   }
 
   async findOne(id: string): Promise<OrgDto> {
