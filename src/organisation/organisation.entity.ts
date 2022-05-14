@@ -5,13 +5,13 @@ export class Org {
     @PrimaryGeneratedColumn("uuid")
     id: string;
 
-    @Column({ type: "varchar", length: 150 })
+    @Column({ type: "varchar", length: 255 })
     name: string;
 
-    @Column({ unique: true, type: "varchar", length: 150 })
+    @Column({ unique: true, type: "varchar", length: 255 })
     email: string;
 
-    @Column({ type: "varchar", length: 150 })
+    @Column({ type: "varchar" })
     password: string;
 
     @Column({ type: "text", nullable: true })
