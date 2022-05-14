@@ -1,9 +1,12 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { Connection } from 'typeorm';
+import 'dotenv/config';
 import { OrgModule } from './organisation/organisation.module';
 import { config, validationSchema } from '../config';
 import { DatabaseModule } from './db/database.module';
+import { AuthModule } from './auth/auth.module';
+import { AppController } from './app.controller';
 
 @Module({
   imports: [
@@ -13,9 +16,10 @@ import { DatabaseModule } from './db/database.module';
       load: [config],
       validationSchema
     }),
-    OrgModule
+    OrgModule,
+    AuthModule
   ],
-  controllers: [],
+  controllers: [AppController],
   providers: [],
 })
 export class AppModule {

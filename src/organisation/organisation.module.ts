@@ -10,5 +10,6 @@ import { Org } from './organisation.entity';
     // TODO: Add Event subscriber
     // TODO: create mock repository
     providers: [OrgService],
+    exports: [OrgService],
 })
 export class OrgModule {}

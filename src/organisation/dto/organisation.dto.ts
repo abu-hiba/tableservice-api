@@ -1,6 +1,7 @@
-export class CreateOrgDto {
+export class OrgDto {
+    readonly id: string;
     readonly name: string;
     readonly description?: string;
     readonly email: string;
-    readonly password: string;
+    readonly subscriptionEndDate?: Date;
 }

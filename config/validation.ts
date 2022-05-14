@@ -5,4 +5,6 @@ export const validationSchema = Joi.object({
         .valid('development', 'staging', 'production')
         .default('development'),
     PORT: Joi.number().default(3000),
+    JWT_SECRET: Joi.string().required(),
+    JWT_EXPIRATION: Joi.string().required(),
 })
