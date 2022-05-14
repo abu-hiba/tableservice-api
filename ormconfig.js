@@ -6,7 +6,7 @@ module.exports = {
     database: process.env.DB_NAME,
     password: process.env.DB_PASSWORD,
     entities: ["dist/**/*.entity{.ts,.js}"],
-    migrations: ["dist/db/migrations/**/*{.ts,.js}"],
+    migrations: ["dist/**/migrations/**/*{.ts,.js}"],
     ...(process.env.NODE_ENV !== 'development' && {
         ssl: {
             rejectUnauthorized: false

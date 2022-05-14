@@ -27,3 +27,15 @@ Run migrations on staging
 ```
 $ heroku run npm run migration:run -r heroku-staging
 ```
+
+## Debugging
+Staging logs
+```
+$ heroku logs --tail -r heroku-staging
+```
+
+## Config
+Set env vars on staging
+```
+$ heroku config:set VAR_NAME=myVariable -r heroku-staging
+```

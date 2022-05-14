@@ -25,7 +25,7 @@ export const getDbConfig = (configService: ConfigService): TypeOrmModuleOptions 
         username: config.user,
         password: config.password,
         entities: ["dist/**/*.entity{.ts,.js}"],
-        migrations: ["dist/db/migrations/**/*{.ts,.js}"],
+        migrations: ["dist/**/migrations/**/*{.ts,.js}"],
         ...(env !== 'development' && {
             ssl: {
                 rejectUnauthorized: false
